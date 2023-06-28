@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-function Deletebtn({ bookID, deltBook }) {
+function Deletebtn({ bookId, deltBook }) {
   const handleDelete = () => {
-    deltBook(bookID);
+    deltBook(bookId);
   };
 
   return (
@@ -10,7 +10,7 @@ function Deletebtn({ bookID, deltBook }) {
   );
 }
 Deletebtn.propTypes = {
-  bookID: PropTypes.number.isRequired,
+  bookId: PropTypes.string.isRequired,
   deltBook: PropTypes.func,
 };
 Deletebtn.defaultProps = {

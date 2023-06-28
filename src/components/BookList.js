@@ -6,7 +6,7 @@ function BookList({ books, deltBook }) {
     <div>
       {books.map((book) => (
         <ul key={book.id}>
-          <li key={`${book.id}-category`}>{book.catagory}</li>
+          <li key={`${book.id}-category`}>{book.catagory || ''}</li>
           <li key={`${book.id}-bookName`}><span>{book.bookName}</span></li>
           <li key={`${book.id}-author`}><span>{book.author}</span></li>
           <li key={`${book.id}-actions`}>
@@ -35,7 +35,7 @@ BookList.propTypes = {
       author: PropTypes.string.isRequired,
       currentChapter: PropTypes.string.isRequired,
       progress: PropTypes.string.isRequired,
-      catagory: PropTypes.string.isRequired,
+      catagory: PropTypes.string,
     }),
   ).isRequired,
   deltBook: PropTypes.func,

@@ -24,10 +24,9 @@ function Bookform({ addNewbook }) {
 
         <select value={author} onChange={(a) => setAuthor(a.target.value)}>
           <option value="">Select an author</option>
-          <option value="John Doe">John Doe</option>
-          <option value="John Noakes"> John Noakes</option>
-          <option value="Richard Miles">Richard Miles</option>
-          <option value="Mary Major">Mary Major</option>
+          <option value="John Solomon">John Solomon</option>
+          <option value="Ninja "> Ninja</option>
+          <option value="Lorem Ibsum">Lorem Ibusm</option>
         </select>
         <button
           type="submit"
