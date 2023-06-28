@@ -1,14 +1,13 @@
-body{
-    background-color: lightgray;
+body {
+  background-color: lightgray;
 }
+
 nav div {
-    gap: 1em;
-    display: flex;
-    align-items: center;
-  }
-  
-  nav a {
-    text-decoration: none;
-    
-   
-  }
+  gap: 1em;
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+}
