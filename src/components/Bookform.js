@@ -1,20 +1,29 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { v4 as uuid4 } from 'uuid';
+import { addBook } from '../redux/books/booksSlice';
 
-function Bookform({ addNewbook }) {
+function Bookform() {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [author, setAuthor] = useState('');
   const add = (e) => {
     e.preventDefault();
     if (name.trim && author.trim) {
-      addNewbook(name, author);
+      dispatch(addBook({
+        item_id: uuid4(),
+        title: name,
+        author,
+        category: '',
+      }));
       setName('');
       setAuthor('');
     }
   };
+
   return (
     <>
-      <form onSubmit={add}>
+      <form>
         <input
           type="text"
           placeholder="Add new book name.."
@@ -22,15 +31,16 @@ function Bookform({ addNewbook }) {
           onChange={(n) => setName(n.target.value)}
         />
 
-        <select value={author} onChange={(a) => setAuthor(a.target.value)}>
-          <option value="">Select an author</option>
-          <option value="John Solomon">John Solomon</option>
-          <option value="Ninja "> Ninja</option>
-          <option value="Lorem Ibsum">Lorem Ibusm</option>
-        </select>
+        <input
+          type="text"
+          placeholder="Add author.."
+          value={author}
+          onChange={(a) => setAuthor(a.target.value)}
+        />
         <button
           type="submit"
           className="input-submit"
+          onClick={add}
         >
           Submit
         </button>
@@ -39,10 +49,5 @@ function Bookform({ addNewbook }) {
     </>
   );
 }
-Bookform.propTypes = {
-  addNewbook: PropTypes.func,
-};
-Bookform.defaultProps = {
-  addNewbook: () => {},
-};
+
 export default Bookform;
