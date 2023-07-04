@@ -1,19 +1,23 @@
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { removeBook } from '../redux/books/booksSlice';
 
-function Deletebtn({ bookId, deltBook }) {
+function Deletebtn({ id }) {
+  const dispatch = useDispatch();
   const handleDelete = () => {
-    deltBook(bookId);
+    dispatch(removeBook(id));
   };
-
   return (
-    <button type="button" onClick={handleDelete}>Remove</button>
+    <button
+      type="button"
+      onClick={handleDelete}
+    >
+      Remove
+    </button>
   );
 }
 Deletebtn.propTypes = {
-  bookId: PropTypes.string.isRequired,
-  deltBook: PropTypes.func,
+  id: PropTypes.string.isRequired,
 };
-Deletebtn.defaultProps = {
-  deltBook: () => {},
-};
+
 export default Deletebtn;

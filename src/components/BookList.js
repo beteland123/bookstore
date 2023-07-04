@@ -1,46 +1,30 @@
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import Deletebtn from './Deletebtn';
 
-function BookList({ books, deltBook }) {
+function BookList() {
+  const { bookList } = useSelector((state) => state.books);
   return (
     <div>
-      {books.map((book) => (
-        <ul key={book.id}>
-          <li key={`${book.id}-category`}>{book.catagory || ''}</li>
-          <li key={`${book.id}-bookName`}><span>{book.bookName}</span></li>
-          <li key={`${book.id}-author`}><span>{book.author}</span></li>
-          <li key={`${book.id}-actions`}>
+      {bookList.map((book) => (
+        <ul key={book.item_id}>
+          <li key={book.item_id}>{book.category || ''}</li>
+          <li key={book.item_id}><span>{book.title}</span></li>
+          <li key={book.item_id}><span>{book.author}</span></li>
+          <li key={book.item_id}>
             <ul>
               <li>comments</li>
-              <li key={`${book.id}-remove`}>
-                <Deletebtn bookId={book.id} deltBook={deltBook} />
+              <li key={book.item_id}>
+                <Deletebtn id={book.item_id} />
                 {' '}
               </li>
-              <li key={`${book.id}-edit`}>Edit</li>
+              <li key={book.item_id}>Edit</li>
             </ul>
           </li>
-          <li key={`${book.id}-progress`}><span>{book.progress}</span></li>
-          <li key={`${book.id}-currentChapter`}><span>{book.currentChapter}</span></li>
+
         </ul>
       ))}
     </div>
   );
 }
 
-BookList.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      bookName: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      currentChapter: PropTypes.string.isRequired,
-      progress: PropTypes.string.isRequired,
-      catagory: PropTypes.string,
-    }),
-  ).isRequired,
-  deltBook: PropTypes.func,
-};
-BookList.defaultProps = {
-  deltBook: () => {},
-};
 export default BookList;
