@@ -6,7 +6,6 @@ function Home() {
     <div>
       <BookList />
       <Bookform />
-
     </div>
   );
 }
