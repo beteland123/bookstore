@@ -106,9 +106,9 @@ npm run build
 ## :telescope: Future Features <a name="future-features"></a>
 
 
-- [ ] preserve Data
+- [ ] Add API for Data of categories
 - [ ] Add some style to have better UI
-- [ ] Connect to API
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
