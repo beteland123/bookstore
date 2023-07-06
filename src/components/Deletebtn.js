@@ -17,7 +17,7 @@ function Deletebtn({ id }) {
   );
 }
 Deletebtn.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Deletebtn;

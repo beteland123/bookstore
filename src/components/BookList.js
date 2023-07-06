@@ -1,13 +1,30 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import {
+  fetchbook, getBooks, getError, getStatus,
+} from '../redux/books/booksSlice';
 import Deletebtn from './Deletebtn';
 
 function BookList() {
-  const { bookList } = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+  const books = useSelector(getBooks);
+  const booksStatus = useSelector(getStatus);
+  const booksError = useSelector(getError);
+
+  useEffect(() => {
+    dispatch(fetchbook());
+  }, []);
+  if (booksStatus === true) {
+    return <div>Loading...</div>;
+  }
+  if (booksError !== '') {
+    return <div>error fetcing</div>;
+  }
   return (
     <div>
-      {bookList.map((book) => (
+      {books.map((book) => (
         <ul key={book.item_id}>
-          <li key={book.item_id}>{book.category || ''}</li>
+          <li key={book.item_id}>{book.category || 'action'}</li>
           <li key={book.item_id}><span>{book.title}</span></li>
           <li key={book.item_id}><span>{book.author}</span></li>
           <li key={book.item_id}>
