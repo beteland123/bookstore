@@ -1,66 +1,55 @@
-.Add-header{
-  font-family: "Montserrat",sans-serif;
+.Add-header,
+.add-book,
+.add-author {
+  font-family: "Montserrat", sans-serif;
+}
+
+.Add-header {
   font-size: 1.25rem;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
   letter-spacing: -0.18px;
   color: #888;
 }
-form{
-    display: flex;
-    margin-top: 20px;
-    grid-gap: 32px;
-    gap: 32px;
+
+form {
+  display: flex;
+  margin-top: 20px;
+  grid-gap: 32px;
+  gap: 32px;
 }
-.add-book{
+
+.add-book {
   width: 60%;
   padding: 18px;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #fff;
-  font-family: "Montserrat",sans-serif;
   font-size: 1rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
   letter-spacing: -0.15px;
   color: #c4c4c4;
 }
 
-
-.add-author{
-    width: 20%;
-    padding: 16px;
-    border-radius: 4px;
-    border: solid 1px #e8e8e8;
-    background-color: #fff;
-    font-family: "Montserrat",sans-serif;
+.add-author {
+  width: 20%;
+  padding: 16px;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
   font-size: 1rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
   letter-spacing: -0.15px;
   color: #c4c4c4;
 }
-.input-submit{
-    color: white;
-  border-radius: 3px;
-  background-color: #0290ff;
+
+.input-submit {
+  color: white;
   border: none;
   width: 15%;
-    padding: 12px;
-    border-radius: 3px;
-    background-color: #0290ff;
-    font-family: "Roboto Slab",serif;
-    font-size: 0.813rem;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.5px;
-    text-align: center;
+  padding: 12px;
+  border-radius: 3px;
+  background-color: #0290ff;
+  font-family: "Roboto Slab", serif;
+  font-size: 0.813rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
