@@ -12,21 +12,32 @@ function BookList() {
   const books = useSelector(getBooks);
   const booksStatus = useSelector(getStatus);
   const booksError = useSelector(getError);
-  const [progress, setProgress] = useState(0);
-  const [chapter, setChapter] = useState(0);
-  const updateProgress = () => {
-    if (progress !== 100) {
-      setProgress(progress + 1);
-    } else {
-      setProgress(0);
-    }
+  const [bookProgress, setBookProgress] = useState({});
+  const [bookChapter, setBookChapter] = useState({});
+  const updateProgress = (itemId) => {
+    const currentProgress = bookProgress[itemId] || 0;
+    const newProgress = (currentProgress !== 100) ? currentProgress + 1 : 0;
+    setBookProgress({
+      ...bookProgress,
+      [itemId]: newProgress,
+    });
+    localStorage.setItem(`progress_${itemId}`, newProgress);
   };
-  const updateChapter = () => {
-    setChapter(chapter + 1);
+  const updateChapter = (itemId) => {
+    const newChapter = (bookChapter[itemId] || 0) + 1;
+    setBookChapter({
+      ...bookChapter,
+      [itemId]: newChapter,
+    });
+    localStorage.setItem(`chapter_${itemId}`, newChapter);
   };
-
   useEffect(() => {
     dispatch(fetchbook());
+    // Retrieve progress and chapter data from Local Storage
+    const storedProgress = JSON.parse(localStorage.getItem('bookProgress') || '{}');
+    setBookProgress(storedProgress);
+    const storedChapter = JSON.parse(localStorage.getItem('bookChapter') || '{}');
+    setBookChapter(storedChapter);
   }, []);
   if (booksStatus === true) {
     return <div>Loading...</div>;
@@ -56,9 +67,9 @@ function BookList() {
             </li>
           </li>
           <li className="progress" key={book.item_id}>
-            <button type="button" className="btncircle" onClick={updateProgress}>
+            <button type="button" className="btncircle" onClick={() => updateProgress(book.item_id)}>
               <CircularProgressbar
-                value={progress}
+                value={bookProgress[book.item_id] || 0}
                 strokeWidth={10}
                 styles={buildStyles({
                   pathColor: '#3e98c7',
@@ -70,7 +81,7 @@ function BookList() {
 
             <div className="progressDiv">
               <span className="percentage">
-                {progress}
+                {bookProgress[book.item_id] || 0}
                 %
               </span>
               <span className="percent-text">completed</span>
@@ -81,9 +92,9 @@ function BookList() {
               <span className="show-chapter">
                 <span> Chapter  </span>
 
-                {chapter}
+                {bookChapter[book.item_id] || 0}
               </span>
-              <button type="button" onClick={updateChapter} className="chap-updater">Update progress</button>
+              <button type="button" onClick={() => updateChapter(book.item_id)} className="chap-updater">Update progress</button>
             </div>
 
           </li>
