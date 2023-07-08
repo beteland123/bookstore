@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
+import '../CSS/addbook.css';
 
 function Bookform() {
   const dispatch = useDispatch();
@@ -22,9 +23,11 @@ function Bookform() {
   };
 
   return (
-    <>
+    <div className="add-container">
+      <h2 className="Add-header">ADD NEW BOOK</h2>
       <form>
         <input
+          className="add-book"
           type="text"
           placeholder="Add new book name.."
           value={name}
@@ -32,6 +35,7 @@ function Bookform() {
         />
 
         <input
+          className="add-author"
           type="text"
           placeholder="Add author.."
           value={author}
@@ -42,11 +46,11 @@ function Bookform() {
           className="input-submit"
           onClick={add}
         >
-          Submit
+          SUBMIT
         </button>
 
       </form>
-    </>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
 function Catagories() {
-  return (<span> under constraction</span>);
+  return (<h1 className="category-heading"> Under constraction</h1>);
 }
 export default Catagories;

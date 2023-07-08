@@ -1,12 +1,17 @@
-import BookList from './BookList';
+import BookList from './Bookrender';
 import Bookform from './Bookform';
+import '../CSS/homestyle.css';
 
 function Home() {
   return (
-    <div>
-      <BookList />
-      <Bookform />
+    <div className="container">
+      <div>
+        <BookList />
+        <hr className="horzontal-divider" />
+        <Bookform />
+      </div>
     </div>
+
   );
 }
 export default Home;
