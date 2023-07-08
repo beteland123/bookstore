@@ -46,7 +46,7 @@ function Bookform() {
           className="input-submit"
           onClick={add}
         >
-          Submit
+          SUBMIT
         </button>
 
       </form>

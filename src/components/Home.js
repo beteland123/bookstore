@@ -5,10 +5,13 @@ import '../CSS/homestyle.css';
 function Home() {
   return (
     <div className="container">
-      <BookList />
-      <hr className="horzontal-divider" />
-      <Bookform />
+      <div>
+        <BookList />
+        <hr className="horzontal-divider" />
+        <Bookform />
+      </div>
     </div>
+
   );
 }
 export default Home;

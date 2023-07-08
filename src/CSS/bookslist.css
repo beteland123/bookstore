@@ -15,7 +15,6 @@ li{
 .book-info{
     display: flex;
     margin: 0;
-    padding: 0;
     background-color: #fff;
     border-radius: 4px;
     border: 1px solid #e8e8e8;
@@ -24,7 +23,7 @@ li{
 .book-child{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
 }
 .CircularProgressbar {
     vertical-align: middle;
@@ -50,8 +49,8 @@ li{
     display: flex;
     flex-direction: column;
     grid-gap: 20px;
-    gap: 20px;
-    width: 14rem;
+    gap: 11px;
+    width: 13rem;
 }
 .progress-divider {
     width: 0.125rem;
@@ -82,7 +81,8 @@ li{
   line-height: normal;
   letter-spacing: -0.2px;
   color: #121212;
-  margin-top: 0.188rem;
+  margin-top: 0.388rem;
+  margin-bottom: 2px;
 }
 .book-author{
     font-family: "Roboto Slab",serif;
@@ -178,4 +178,6 @@ li{
     font-weight: 300;
     letter-spacing: .5px;
     color: #fff;
+    font-size: 0.813rem;
+    text-align: center;
 }

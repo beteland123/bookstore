@@ -88,13 +88,13 @@ function BookList() {
             </div>
             <div className="progress-divider" />
             <div className="chapterDiv">
-              <span className="current-chapter">Current chapter</span>
+              <span className="current-chapter">CURRENT CHAPTER</span>
               <span className="show-chapter">
                 <span> Chapter  </span>
 
                 {bookChapter[book.item_id] || 0}
               </span>
-              <button type="button" onClick={() => updateChapter(book.item_id)} className="chap-updater">Update progress</button>
+              <button type="button" onClick={() => updateChapter(book.item_id)} className="chap-updater">UPDATE PROGRESS</button>
             </div>
 
           </li>
