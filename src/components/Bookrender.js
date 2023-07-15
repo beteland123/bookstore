@@ -32,13 +32,15 @@ function BookList() {
     localStorage.setItem(`chapter_${itemId}`, newChapter);
   };
   useEffect(() => {
-    dispatch(fetchbook());
-    // Retrieve progress and chapter data from Local Storage
-    const storedProgress = JSON.parse(localStorage.getItem('bookProgress') || '{}');
-    setBookProgress(storedProgress);
-    const storedChapter = JSON.parse(localStorage.getItem('bookChapter') || '{}');
-    setBookChapter(storedChapter);
-  }, []);
+    if (books.length === 0) {
+      dispatch(fetchbook());
+      // Retrieve progress and chapter data from Local Storage
+      const storedProgress = JSON.parse(localStorage.getItem('bookProgress') || '{}');
+      setBookProgress(storedProgress);
+      const storedChapter = JSON.parse(localStorage.getItem('bookChapter') || '{}');
+      setBookChapter(storedChapter);
+    }
+  }, [dispatch, books.length]);
   if (booksStatus === true) {
     return <div>Loading...</div>;
   }
